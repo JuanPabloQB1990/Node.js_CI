@@ -1,0 +1,17 @@
+# Use root/example as user/password credentials
+version: '3.8'
+
+services:
+  mysqldb:
+    image: mysql
+    environment: 
+      - MYSQL_ROOT_PASSWORD=Juanpablo1990
+      - MYSQL_DATABASE=docker
+    ports:
+      - 3307:3306
+  appnode: 
+    build: .
+    depends_on:
+      - mysqldb
+    ports: 
+      - 4000:3000
