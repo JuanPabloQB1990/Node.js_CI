@@ -1,0 +1,29 @@
+name: Integracion Continua con Node 
+
+on: 
+  push:
+    branches: [ master ]
+
+jobs: 
+  ci_to_master:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v1
+
+        with: 
+          node_version: 20
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run tests
+        run: npm test
+
+      - name: Build project
+        run: npm run build
+
+        
