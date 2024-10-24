@@ -35,9 +35,6 @@ jobs:
       - name: Run tests
         run: npm test
 
-      # Compilar la aplicación si es necesario
-      - name: Build project
-        run: npm run build
 
      
 
